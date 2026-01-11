@@ -51,7 +51,7 @@ services:
       test: [ "CMD", "curl", "-f", "http://localhost:8000/" ]
       interval: 5s
       retries: 5
-      start_interval: 10s
+      start_period: 10s
       timeout: 3s
 networks:
   notesapi-network:
