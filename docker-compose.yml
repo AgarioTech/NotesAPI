@@ -12,18 +12,6 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - notesapi-network
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - /etc/letsencrypt:/etc/letsencrypt:ro
-    depends_on:
-      - web
-    networks:
-      - notesapi-network
   web:
     build: .
     restart: on-failure
@@ -42,6 +30,18 @@ services:
       DB_PASSWORD: 1812
       DB_HOST: db
       DB_PORT: 5432
+    networks:
+      - notesapi-network
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    depends_on:
+      - web
     networks:
       - notesapi-network
 networks:
