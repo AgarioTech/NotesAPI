@@ -22,6 +22,7 @@ services:
       gunicorn settings.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/django-app
+      - static_volume:/django-app/staticfiles:ro
     depends_on:
       - db
     environment:
@@ -41,6 +42,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ./staticfiles:/django-app/staticfiles:ro
+      - static_volume:/django-app/staticfiles:ro
     depends_on:
       - web
     networks:
