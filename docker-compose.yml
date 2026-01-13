@@ -40,10 +40,12 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./staticfiles:/django-app/staticfiles:ro
     depends_on:
       - web
     networks:
       - notesapi-network
+
 networks:
   notesapi-network:
     driver: bridge
