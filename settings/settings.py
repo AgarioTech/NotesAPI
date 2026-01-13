@@ -168,6 +168,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
+    'notesapi.ru',
+    'www.notesapi.ru',
 ]
 
 CSRF_COOKIE_SECURE = False
