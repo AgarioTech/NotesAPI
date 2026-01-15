@@ -60,6 +60,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_KEY }}
           script: | 
-            cd /notesapi
+            cd notesapi
             git pull origin main
             docker-compose up -d --build
