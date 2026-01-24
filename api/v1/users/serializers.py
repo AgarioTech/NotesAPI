@@ -17,7 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
             'username',
             'password'
         )
-        exclude = ('email',)
 
 
 
