@@ -29,7 +29,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = CustomUser.objects.prefetch_related('notes')
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['username', 'id', 'email']
+    filterset_fields = ['username', 'id']
     pagination_class = CustomPagination
 
     def get_permissions(self):
