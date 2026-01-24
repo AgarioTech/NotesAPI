@@ -27,7 +27,7 @@ class UserViewSet(viewsets.ModelViewSet):
         — login
     """
     serializer_class = UserSerializer
-    queryset = CustomUser.objects.prefetch_related('notes')
+    queryset = CustomUser.objects.prefetch_related('notes').order_by('id')
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['username', 'id']
     pagination_class = CustomPagination
