@@ -61,6 +61,8 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           script: | 
             cd notesapi
+            git stash
             git pull origin main
+            git stash pop
             docker-compose down
             docker-compose up -d --build
