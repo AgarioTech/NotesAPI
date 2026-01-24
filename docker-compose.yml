@@ -12,6 +12,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - notesapi-network
+    ports:
+      - "5433:5432"
   web:
     build: .
     restart: on-failure
@@ -32,6 +34,8 @@ services:
       DB_PORT: 5432
     networks:
       - notesapi-network
+    ports:
+      - "8000:8000"
   nginx:
     image: nginx:latest
     ports:

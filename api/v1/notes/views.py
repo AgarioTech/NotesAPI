@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -39,3 +40,5 @@ class NoteViewSet(viewsets.ModelViewSet,
         )
         return Response(data)
 
+def index(request):
+    return render(request, 'index.html')

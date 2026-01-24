@@ -21,6 +21,8 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
+from api.v1.notes.views import index
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Notes API",
@@ -39,5 +41,6 @@ urlpatterns = [
         path('', include('api.v1.users.urls')),
         path('', include('api.v1.notes.urls')),
     ])),
-    path('doc/', schema_view.with_ui('swagger', cache_timeout=0))
+    path('doc/', schema_view.with_ui('swagger', cache_timeout=0)),
+    path('', index, name='index')
 ]
