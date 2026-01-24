@@ -9,12 +9,13 @@ from api.v1.users.models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     username = serializers.CharField()
-    email = serializers.EmailField()
 
     class Meta:
         model = CustomUser
         fields = (
-            'id', 'username', 'password', 'email'
+            'id',
+            'username',
+            'password'
         )
 
 
